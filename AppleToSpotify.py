@@ -6,25 +6,26 @@ from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+import os
+from dotenv import load_dotenv
+
+# NOTE: PUT URL HERE
+url = 'https://music.apple.com/us/playlist/love/pl.u-AkAmVkbU2JL3oAY'
+
 
 # Set up Selenium WebDriver
 options = Options()
-options.headless = True  # Run headless browser
+options.headless = True
 service = Service('C:\\Program Files\\Google\\chromedriver-win64\\chromedriver.exe')  # Path to your WebDriver executable
 driver = webdriver.Chrome(service=service, options=options)
 
-# URL of the Apple Music playlist
-url = 'https://music.apple.com/us/playlist/love/pl.u-AkAmVkbU2JL3oAY'
-
-# Fetch the webpage
 driver.get(url)
-time.sleep(5)  # Wait for the page to load
+time.sleep(5)
 
 # Get the page source and parse it with BeautifulSoup
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 driver.quit()  # Close the browser
 
-# Find the song titles and artist names
 songs = soup.find_all('div', class_='songs-list-row__song-name')
 artists = soup.find_all('div', class_='songs-list-row__by-line')
 
@@ -32,7 +33,6 @@ artists = soup.find_all('div', class_='songs-list-row__by-line')
 print("Raw Songs Elements:", songs)
 print("Raw Artists Elements:", artists)
 
-# Store the extracted information
 playlist = []
 for song, artist in zip(songs, artists):
     title = song.text.strip()
@@ -44,12 +44,12 @@ print("Extracted Playlist:")
 for song in playlist:
     print(f"Title: {song['title']}, Artist: {song['artist']}")
 
-# Set your Spotify credentials
-CLIENT_ID = 'b7f161e0bc6d4b778a55b706eee63438'
-CLIENT_SECRET = '626aaf53ee134234b7448578d7e970ef'
+load_dotenv()
+
+CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 REDIRECT_URI = 'http://localhost/'
 
-# Authenticate with Spotify
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
                                                client_secret=CLIENT_SECRET,
                                                redirect_uri=REDIRECT_URI,
@@ -69,7 +69,6 @@ for song in playlist:
     else:
         print(f"Song not found: {song['title']} by {song['artist']}")
 
-# Debug: Print the track IDs
 print("Track IDs:")
 print(track_ids)
 
@@ -80,7 +79,6 @@ def chunks(lst, n):
 
 track_chunks = list(chunks(track_ids, 100))
 
-# Add tracks to the playlist in chunks
 for chunk in track_chunks:
     sp.user_playlist_add_tracks(user_id, playlist_spotify['id'], chunk)
     print(f"Added {len(chunk)} tracks to the playlist.")
