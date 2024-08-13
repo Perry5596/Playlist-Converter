@@ -29,7 +29,7 @@ This project provides a Python script that automates the process of transferring
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/apple-music-to-spotify.git
+    git clone https://github.com/Perry5596/Playlist-Converter.git
     cd apple-music-to-spotify
     ```
 

@@ -10,8 +10,7 @@ import os
 from dotenv import load_dotenv
 
 # NOTE: PUT URL HERE
-url = 'https://music.apple.com/us/playlist/love/pl.u-AkAmVkbU2JL3oAY'
-
+url = 'https://music.apple.com/us/playlist/your_playlist_url_here'
 
 # Set up Selenium WebDriver
 options = Options()
