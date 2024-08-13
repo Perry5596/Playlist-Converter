@@ -1,6 +1,6 @@
 # Playlist Converter
 
-[![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/downloads/release/python-380/)
+[![Python Version](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/downloads/release/python-380/)
 [![Selenium](https://img.shields.io/badge/Selenium-4.0%2B-brightgreen.svg)](https://www.selenium.dev/documentation/webdriver/)
 [![BeautifulSoup](https://img.shields.io/badge/BeautifulSoup-4.9.3-orange.svg)](https://www.crummy.com/software/BeautifulSoup/)
 [![Spotify API](https://img.shields.io/badge/Spotify-API-brightgreen.svg)](https://developer.spotify.com/documentation/web-api/)
