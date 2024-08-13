@@ -19,7 +19,7 @@ service = Service('C:\\Program Files\\Google\\chromedriver-win64\\chromedriver.e
 driver = webdriver.Chrome(service=service, options=options)
 
 driver.get(url)
-time.sleep(5)
+time.sleep(3)
 
 # Get the page source and parse it with BeautifulSoup
 soup = BeautifulSoup(driver.page_source, 'html.parser')
