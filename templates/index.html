@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apple to Spotify Playlist Converter</title>
+</head>
+<body>
+    <h1>Convert Apple Music Playlist to Spotify Playlist</h1>
+    <form action="{{ url_for('convert') }}" method="POST">
+        <label for="apple_url">Apple Music Playlist URL:</label>
+        <input type="text" name="apple_url" id="apple_url" required>
+        <button type="submit">Convert</button>
+    </form>
+</body>
+</html>
