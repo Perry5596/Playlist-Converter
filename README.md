@@ -58,7 +58,7 @@ This project provides a Python script that automates the process of transferring
 
 5. **Download and set up ChromeDriver:**
 
-    - Download [ChromeDriver](https://sites.google.com/chromium.org/driver/) and ensure it matches your Chrome version.
+    - Download [ChromeDriver](https://googlechromelabs.github.io/chrome-for-testing/) and ensure it matches your Chrome version.
     - Update the path to the ChromeDriver executable in the script:
     ```python
     service = Service('path/to/your/chromedriver')

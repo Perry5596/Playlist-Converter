@@ -8,6 +8,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import os
 from dotenv import load_dotenv
+from webdriver_manager.chrome import ChromeDriverManager
 
 # NOTE: PUT URL HERE
 url = 'https://music.apple.com/us/playlist/your_playlist_url_here'
@@ -15,11 +16,11 @@ url = 'https://music.apple.com/us/playlist/your_playlist_url_here'
 # Set up Selenium WebDriver
 options = Options()
 options.headless = True
-service = Service('C:\\Program Files\\Google\\chromedriver-win64\\chromedriver.exe')  # Path to your WebDriver executable
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
 
 driver.get(url)
-time.sleep(3)
+time.sleep(5)
 
 # Get the page source and parse it with BeautifulSoup
 soup = BeautifulSoup(driver.page_source, 'html.parser')
