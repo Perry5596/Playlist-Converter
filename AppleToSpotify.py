@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 from webdriver_manager.chrome import ChromeDriverManager
 
 # NOTE: PUT URL HERE
-url = 'https://music.apple.com/us/playlist/anything/pl.u-mJy8gPRuzAWzg28'
+url = 'https://music.apple.com/us/playlist/your-playlist-url-here'
 
 # Set up Selenium WebDriver
 options = Options()
