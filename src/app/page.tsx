@@ -8,7 +8,7 @@ export default function HomePage() {
         <div className="flex flex-col gap-4 rounded-xl bg-white/10 p-6 text-center">
           <h2 className="text-2xl font-bold">Music Without Boundaries</h2>
           <p className="text-lg">
-            Seamlessly convert your playlists between music streaming services. We currently support Spotify, Apple Music, YouTube Music, and SoundCloud.
+            Seamlessly convert your playlists between music streaming services without needing to connect your account.
           </p>
           <a
             href="/convert"
